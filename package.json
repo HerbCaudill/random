@@ -4,6 +4,10 @@
   "version": "0.1.4",
   "license": "MIT",
   "private": false,
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/herbcaudill/random"
+  },
   "module": "dist/random.esm.js",
   "main": "dist/index.js",
   "typings": "dist/index.d.ts",
@@ -18,10 +22,7 @@
     "start": "tsdx watch",
     "build": "tsdx build",
     "test": "tsdx test",
-    "lint": "tsdx lint",
-    "prepare": "tsdx build",
-    "size": "size-limit",
-    "analyze": "size-limit --why"
+    "prepare": "tsdx build"
   },
   "dependencies": {
     "seed-random": "^2.2.0"
