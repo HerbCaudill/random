@@ -1,13 +1,14 @@
 import seedRandom from 'seed-random'
 
 const IOTA = 0.00000000000001
+const ALPHABET = 'abcdefghijklmnopqrstuvwxyz'.split('')
 
-export const makeRandom = (seed: string = new Date().getTime().toString()) => {
+export const makeRandom = (seed: string = Math.random().toString()) => {
   const randomizer = seedRandom(seed)
   const random = () => randomizer() * (1 - IOTA) + IOTA // ensure non-zero result
 
   const r = {
-    integer: (min: number, max: number) => Math.floor(r.decimal(min, max)),
+    integer: (min: number = 0, max: number = 10) => Math.floor(r.decimal(min, max)),
 
     decimal: (min: number = 0, max: number = 1) => random() * (max - min) + min,
 
@@ -34,11 +35,10 @@ export const makeRandom = (seed: string = new Date().getTime().toString()) => {
       }
     },
 
-    plusOrMinus: () => r.pick([-1, 1]),
+    plusOrMinus: () => (r.coinFlip() ? 1 : -1),
 
     alpha: (len: number = 5) => {
-      const alphabet = 'abcdefghijklmnopqrstuvwxyz'.split('')
-      return '_'.repeat(len).replace(/_/g, () => r.pick(alphabet))
+      return '_'.repeat(len).replace(/_/g, () => r.pick(ALPHABET))
     },
   }
 
