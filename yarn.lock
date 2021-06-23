@@ -1284,6 +1284,11 @@
   dependencies:
     "@types/node" "*"
 
+"@types/seed-random@^2.2.0":
+  version "2.2.0"
+  resolved "https://registry.yarnpkg.com/@types/seed-random/-/seed-random-2.2.0.tgz#38a1acb76ba12cc79b98cfa77962773d3ff0764c"
+  integrity sha512-cQzmJjnYeGTZ6yrSljKUpBXim39c9cRwpTFArZzSdD3Jp5G1Le4YS+OUxf0KaI3AD+DRaSzDV0NH13U1N6CZ3g==
+
 "@types/stack-utils@^1.0.1":
   version "1.0.1"
   resolved "https://registry.yarnpkg.com/@types/stack-utils/-/stack-utils-1.0.1.tgz#0a851d3bd96498fa25c33ab7278ed3bd65f06c3e"
@@ -8510,9 +8515,9 @@ write@1.0.3:
     mkdirp "^0.5.1"
 
 ws@^7.0.0, ws@^7.3.1:
-  version "7.4.3"
-  resolved "https://registry.yarnpkg.com/ws/-/ws-7.4.3.tgz#1f9643de34a543b8edb124bdcbc457ae55a6e5cd"
-  integrity sha512-hr6vCR76GsossIRsr8OLR9acVVm1jyfEWvhbNjtgPOrfvAlKzvyeg/P6r8RuDjRyrcQoPQT7K0DGEPc7Ae6jzA==
+  version "7.5.0"
+  resolved "https://registry.yarnpkg.com/ws/-/ws-7.5.0.tgz#0033bafea031fb9df041b2026fc72a571ca44691"
+  integrity sha512-6ezXvzOZupqKj4jUqbQ9tXuJNo+BR2gU8fFRk3XCP3e0G6WT414u5ELe6Y0vtp7kmSJ3F7YWObSNr1ESsgi4vw==
 
 xml-name-validator@^3.0.0:
   version "3.0.0"
