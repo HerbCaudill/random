@@ -8,11 +8,11 @@ export const makeRandom = (seed: string = Math.random().toString()) => {
   const random = () => randomizer() * (1 - IOTA) + IOTA // ensure non-zero result
 
   const r = {
-    integer: (min: number = 0, max: number = 10) => Math.floor(r.decimal(min, max)),
+    integer: (min = 0, max = 10) => Math.floor(r.decimal(min, max)),
 
-    decimal: (min: number = 0, max: number = 1) => random() * (max - min) + min,
+    decimal: (min = 0, max = 1) => random() * (max - min) + min,
 
-    normal: (min: number = 0, max: number = 1): number => {
+    normal: (min = 0, max = 1): number => {
       const u = random()
       const v = random()
       let num = Math.sqrt(-2.0 * Math.log(u)) * Math.cos(2.0 * Math.PI * v)
@@ -25,7 +25,7 @@ export const makeRandom = (seed: string = Math.random().toString()) => {
 
     probability: (percent: number) => random() < percent,
 
-    pick: (obj: any[] | { [key: string]: any }): any => {
+    pick: <T>(obj: T[] | Record<string | number, T>): T => {
       if (Array.isArray(obj)) {
         // return random element of an array
         return obj[r.integer(0, obj.length)]
