@@ -28,16 +28,18 @@ export const makeRandom = (seed: string = Math.random().toString()) => {
     pick: <T>(obj: T[] | Record<string | number, T>): T => {
       if (Array.isArray(obj)) {
         // return random element of an array
-        return obj[r.integer(0, obj.length)]
+        const key = r.integer(0, obj.length)
+        return obj[key]
       } else {
         // return random property of an object
-        return obj[r.pick(Object.keys(obj))]
+        const key = r.pick(Object.keys(obj))
+        return obj[key]
       }
     },
 
     plusOrMinus: () => (r.coinFlip() ? 1 : -1),
 
-    alpha: (len: number = 5) => {
+    alpha: (len = 5) => {
       return '_'.repeat(len).replace(/_/g, () => r.pick(ALPHABET))
     },
   }
