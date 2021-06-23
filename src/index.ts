@@ -21,9 +21,11 @@ export const makeRandom = (seed: string = Math.random().toString()) => {
       return num * (max - min) + min
     },
 
+    probability: (percent: number) => random() < percent,
+
     coinFlip: () => r.probability(0.5),
 
-    probability: (percent: number) => random() < percent,
+    plusOrMinus: () => (r.coinFlip() ? 1 : -1),
 
     pick: <T>(obj: T[] | Record<string | number, T>): T => {
       if (Array.isArray(obj)) {
@@ -37,11 +39,7 @@ export const makeRandom = (seed: string = Math.random().toString()) => {
       }
     },
 
-    plusOrMinus: () => (r.coinFlip() ? 1 : -1),
-
-    alpha: (len = 5) => {
-      return '_'.repeat(len).replace(/_/g, () => r.pick(ALPHABET))
-    },
+    alpha: (length = 5) => new Array(length).fill(null).reduce(_ => _ + r.pick(ALPHABET), ''),
   }
 
   return r
