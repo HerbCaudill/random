@@ -1,5 +1,5 @@
 import { makeRandom } from '.'
-
+import { describe, test, expect } from 'vitest'
 const N = 100000
 
 describe('makeRandom', () => {
@@ -83,7 +83,7 @@ describe('makeRandom', () => {
 
       // results are distributed uniformly
       expect(makeBins(values)).toMatchInlineSnapshot(`
-        Object {
+        {
           "00": 10063,
           "01": 9973,
           "02": 9902,
@@ -129,7 +129,7 @@ describe('makeRandom', () => {
 
       // results are distributed uniformly
       expect(makeBins(values)).toMatchInlineSnapshot(`
-        Object {
+        {
           "00": 9889,
           "01": 10030,
           "02": 9947,
@@ -164,7 +164,7 @@ describe('makeRandom', () => {
 
       // results are distributed normally
       expect(makeBins(values)).toMatchInlineSnapshot(`
-        Object {
+        {
           "00": 3,
           "01": 136,
           "02": 2143,
@@ -334,6 +334,84 @@ describe('makeRandom', () => {
       const r = makeRandom('test-alpha-4')
       const values = range(N).map(_ => r.alpha(5))
       expect(values.length).toBe(N)
+    })
+  })
+
+  describe('shuffle', () => {
+    test('snapshots', () => {
+      const r = makeRandom('test-shuffle-1')
+
+      expect(r.shuffle([1, 2, 3, 4, 5])).toMatchInlineSnapshot(`
+        [
+          1,
+          2,
+          3,
+          4,
+          5,
+        ]
+      `)
+      expect(r.shuffle([1, 2, 3, 4, 5])).toMatchInlineSnapshot(`
+        [
+          1,
+          2,
+          3,
+          5,
+          4,
+        ]
+      `)
+      expect(r.shuffle([1, 2, 3, 4, 5])).toMatchInlineSnapshot(`
+        [
+          1,
+          4,
+          2,
+          5,
+          3,
+        ]
+      `)
+      expect(r.shuffle([1, 2, 3, 4, 5])).toMatchInlineSnapshot(`
+        [
+          4,
+          1,
+          5,
+          2,
+          3,
+        ]
+      `)
+    })
+  })
+
+  describe('sample', () => {
+    test('snapshots ', () => {
+      const r = makeRandom('test-sample-1')
+
+      expect(r.sample([1, 2, 3, 4, 5], 3)).toMatchInlineSnapshot(`
+        [
+          1,
+          2,
+          3,
+        ]
+      `)
+      expect(r.sample([1, 2, 3, 4, 5], 3)).toMatchInlineSnapshot(`
+        [
+          1,
+          2,
+          3,
+        ]
+      `)
+      expect(r.sample([1, 2, 3, 4, 5], 3)).toMatchInlineSnapshot(`
+        [
+          1,
+          3,
+          5,
+        ]
+      `)
+      expect(r.sample([1, 2, 3, 4, 5], 3)).toMatchInlineSnapshot(`
+        [
+          1,
+          4,
+          2,
+        ]
+      `)
     })
   })
 })

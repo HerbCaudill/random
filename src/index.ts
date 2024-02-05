@@ -40,6 +40,16 @@ export const makeRandom = (seed: string = Math.random().toString()) => {
     },
 
     alpha: (length = 5) => new Array(length).fill(null).reduce(_ => _ + r.pick(ALPHABET), ''),
+
+    shuffle: <T>(arr: T[]): T[] => {
+      const result = [...arr]
+      return result.sort(() => r.plusOrMinus())
+    },
+
+    sample: <T>(arr: T[], size = 1): T[] => {
+      const result = r.shuffle(arr)
+      return result.slice(0, size)
+    },
   }
 
   return r

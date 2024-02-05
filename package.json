@@ -1,46 +1,24 @@
 {
   "name": "@herbcaudill/random",
-  "author": "HerbCaudill",
-  "version": "0.2.0",
+  "author": "herb@devresults.com",
+  "version": "1.0.0",
   "license": "MIT",
   "private": false,
   "repository": {
     "type": "git",
-    "url": "https://github.com/herbcaudill/random"
+    "url": "git+https://github.com/herbcaudill/random"
   },
-  "module": "dist/random.esm.js",
-  "main": "dist/index.js",
-  "typings": "dist/index.d.ts",
-  "files": [
-    "dist",
-    "src"
-  ],
-  "engines": {
-    "node": ">=10"
-  },
+  "type": "module",
   "scripts": {
-    "start": "tsdx watch",
-    "build": "tsdx build",
-    "test": "tsdx test",
-    "prepare": "tsdx build"
+    "build": "tsc",
+    "test": "vitest"
   },
   "dependencies": {
     "seed-random": "2"
   },
   "devDependencies": {
-    "@size-limit/preset-small-lib": "4",
     "@types/seed-random": "2",
-    "husky": "5",
-    "size-limit": "4",
-    "tsdx": "0",
-    "tslib": "2",
-    "typescript": "4"
-  },
-  "prettier": {
-    "printWidth": 100,
-    "semi": false,
-    "singleQuote": true,
-    "trailingComma": "es5",
-    "arrowParens": "avoid"
+    "typescript": "^5.3.3",
+    "vitest": "^1.2.2"
   }
 }
