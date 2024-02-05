@@ -6,7 +6,7 @@
   "private": false,
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/herbcaudill/random"
+    "url": "git+https://github.com/herbcaudill/random.git"
   },
   "type": "module",
   "scripts": {
