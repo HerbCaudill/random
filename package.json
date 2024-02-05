@@ -14,10 +14,10 @@
     "test": "vitest"
   },
   "dependencies": {
-    "seed-random": "2"
+    "seed-random": "^2.2.0"
   },
   "devDependencies": {
-    "@types/seed-random": "2",
+    "@types/seed-random": "^2.2.4",
     "typescript": "^5.3.3",
     "vitest": "^1.2.2"
   }
