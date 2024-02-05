@@ -6,12 +6,12 @@ settings:
 
 dependencies:
   seed-random:
-    specifier: '2'
+    specifier: ^2.2.0
     version: 2.2.0
 
 devDependencies:
   '@types/seed-random':
-    specifier: '2'
+    specifier: ^2.2.4
     version: 2.2.4
   typescript:
     specifier: ^5.3.3
